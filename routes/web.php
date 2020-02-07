@@ -21,4 +21,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/houses', 'HousesController');
+//Route::resource('/houses', 'HousesController', ['except' => 'index']);
+
+//Route::get('/', 'HousesController@index');
+
+Route::resource('users', 'UsersController');
+
+Route::get('/additional/mortgage', 'AdditionalController@mortgage');
+
+Route::get('/additional/feedback', 'AdditionalController@feedback');
+
+Route::post('/additional/feedback', 'AdditionalController@send');
