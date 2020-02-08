@@ -17,8 +17,8 @@ class HousesController extends Controller
     {
         //
         $houses = House::all();
-        return 'index';
-//        return view('/house/index_house', compact('houses'));
+//        return 'index';
+        return view('/house/index_house', compact('houses'));
     }
 
     /**
@@ -28,9 +28,7 @@ class HousesController extends Controller
      */
     public function create()
     {
-        //
-
-        return redirect('/');
+        return view('/house/create_house');
     }
 
     /**
@@ -41,7 +39,9 @@ class HousesController extends Controller
      */
     public function store(Request $request)
     {
+
         //
+        return redirect('/');
     }
 
     /**

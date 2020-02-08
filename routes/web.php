@@ -11,22 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/houses', 'HousesController');
-//Route::resource('/houses', 'HousesController', ['except' => 'index']);
+Auth::routes();
 
-//Route::get('/', 'HousesController@index');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::resource('/houses', 'HousesController');
+Route::resource('/houses', 'HousesController', ['except' => 'index']);
+
+Route::get('/', 'HousesController@index')->name('home');
 
 Route::resource('users', 'UsersController');
 
