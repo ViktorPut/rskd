@@ -20,7 +20,7 @@ class Street extends Model
         return $this->belongsTo(District::class);
     }
 
-    public function addAddressAttribute($addressNumber) : Address{
+    public function addAddressesAttribute($addressNumber) : Address{
         $address = Address::firstOrNew([
             'number' => $addressNumber,
             'street_id' => $this->id

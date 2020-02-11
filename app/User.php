@@ -45,5 +45,17 @@ class User extends Authenticatable
         return $this->belongsToMany(House::class);
     }
 
+    public function isManager() : bool {
+        return $this->role_id == 2 ? true : false;
+    }
+
+    public function  isAdmin() : bool {
+        return $this->role_id == 1 ? true : false;
+    }
+
+    public static function getManagerList(){
+        $managers = User::where('role_id', 2)->get();
+        return $managers;
+    }
 
 }

@@ -18,9 +18,17 @@
         <ul>
             <li>
                 № {{$house->id}}. {{$house->description }}
-                <a href="{{action('HousesController@edit', [ 'id' => $house->id ])}}">Update</a>
-                <a href="{{action('HousesController@show', [ 'id' => $house->id ])}}">View</a>
-                <a href="{{action('HousesController@destroy', [ 'id' => $house->id ])}}">Delete</a>
+                @auth
+                @if(\Illuminate\Support\Facades\Auth::user()->houses->contains($house) || \Illuminate\Support\Facades\Auth::user()->isAdmin())
+                    <a href="{{action('HousesController@edit', [ 'house' => $house ])}}">Update</a>
+                @endif
+                <a href="{{action('HousesController@show', [ 'house' => $house ])}}">View</a>
+                <form method="POST" action="{{action('HousesController@destroy', [ 'house' => $house ])}}" >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+                @endauth
             </li>
         </ul>
     @endforeach

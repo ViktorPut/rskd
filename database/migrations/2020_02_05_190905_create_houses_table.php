@@ -18,8 +18,8 @@ class CreateHousesTable extends Migration
             $table->bigIncrements('id');
             $table->string('floors')->nullable()->comment('Количество этажей');
             $table->string('rooms')->nullable()->comment('Количество комнат');
-            $table->decimal('space',2)->comment('Площадь');
-            $table->decimal('cost',2)->comment('Стоимость');
+            $table->decimal('space',10, 2)->comment('Площадь');
+            $table->decimal('cost',30, 2)->comment('Стоимость');
             $table->longText('description')->nullable()->comment('Описание');
             $table->unsignedBigInteger('address_id');
             $table->foreign('address_id')

@@ -23,7 +23,6 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::resource('/houses', 'HousesController');
 Route::resource('/houses', 'HousesController', ['except' => 'index']);
 
 Route::get('/', 'HousesController@index')->name('home');
@@ -35,3 +34,7 @@ Route::get('/additional/mortgage', 'AdditionalController@mortgage');
 Route::get('/additional/feedback', 'AdditionalController@feedback');
 
 Route::post('/additional/feedback', 'AdditionalController@send');
+
+Route::get('/photos/{photo}/destroy', 'PhotosController@destroy');
+
+Route::post('photos/{house}/create', 'PhotosController@create');
