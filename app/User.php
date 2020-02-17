@@ -46,15 +46,15 @@ class User extends Authenticatable
     }
 
     public function isManager() : bool {
-        return $this->role_id == 2 ? true : false;
+        return $this->role_id == Role::MANAGER ? true : false;
     }
 
     public function  isAdmin() : bool {
-        return $this->role_id == 1 ? true : false;
+        return $this->role_id == Role::ADMIN ? true : false;
     }
 
     public static function getManagerList(){
-        $managers = User::where('role_id', 2)->get();
+        $managers = User::where('role_id', Role::MANAGER)->get();
         return $managers;
     }
 
