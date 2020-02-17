@@ -227,7 +227,7 @@ class HousesController extends Controller
     public function destroy(App\House $house)
     {
         //
-        App\Photo::where('house_id', $house->id)->delete();
+//        App\Photo::where('house_id', $house->id)->delete();
         Storage::deleteDirectory('public/photos/house_photos/'.$house->id);
         $house->parameters()->detach();
         $house->delete();
